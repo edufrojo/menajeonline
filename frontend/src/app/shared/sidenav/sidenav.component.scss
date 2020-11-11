@@ -1,0 +1,16 @@
+#sidenav {
+  position: fixed;
+  overflow-x: hidden;
+  top: 0;
+  left: -200px;
+  bottom: 0;
+  background-color: lightsalmon;
+  height: 100%;
+  width: 160px;
+  padding: 20px;
+  transition: 0.5s;
+
+  img {
+    height: 30px;
+  }
+}
