@@ -12,6 +12,7 @@ export class SidenavComponent implements OnInit {
 
   closeNav() {
     document.getElementById('sidenav').style.left = '-200px';
-    document.body.style.backgroundColor = 'white';
+    document.getElementById('sidenav-background').style.display = 'none';
+    document.getElementById('sidenav-background').style.visibility = 'hidden';
   }
 }

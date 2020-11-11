@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
 
   openNav() {
     document.getElementById('sidenav').style.left = '0px';
-    document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+    document.getElementById('sidenav-background').style.display = 'block';
+    document.getElementById('sidenav-background').style.visibility = 'visible';
   }
 }

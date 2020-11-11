@@ -1,11 +1,13 @@
-header {
+#header {
   display: flex;
   justify-content: center;
-  min-height: 50px;
-  width: 100%;
-  background-color: lightblue;
 
-  img {
-    height: 30px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      height: 30px;
+    }
   }
 }
