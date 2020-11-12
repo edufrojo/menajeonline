@@ -1,8 +1,11 @@
 <mat-toolbar id="header">
-  <div class="container">
-    <button mat-icon-button aria-label="menu" class="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <img src="../../../assets/images/no-image.jpg" alt="Buscar" />
-  </div>
+  <button
+    mat-icon-button
+    aria-label="menu"
+    class="menu"
+    (click)="inputSideNav.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="../../../assets/images/no-image.jpg" alt="Buscar" />
 </mat-toolbar>

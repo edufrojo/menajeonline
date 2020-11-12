@@ -1,16 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
-  margin: 0;
+  height: 100%;
 }
 
-app-root {
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.wrapper {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-main {
+.wrapper-main {
   flex: 1;
 }
 
@@ -19,13 +24,4 @@ main {
   padding-left: 15px;
   padding-right: 15px;
   width: 100%;
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

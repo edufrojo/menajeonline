@@ -1,18 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() inputSideNav: MatSidenav;
+
   constructor() {}
 
   ngOnInit(): void {}
-
-  openNav() {
-    document.getElementById('sidenav').style.left = '0px';
-    document.getElementById('sidenav-background').style.display = 'block';
-    document.getElementById('sidenav-background').style.visibility = 'visible';
-  }
 }
