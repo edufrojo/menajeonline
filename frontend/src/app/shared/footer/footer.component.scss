@@ -1,13 +1,18 @@
 footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 70px;
   background-color: black;
 
-  a {
-    color: white;
-    padding-left: 15px;
-    padding-right: 15px;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      color: white;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 }

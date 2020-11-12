@@ -1,9 +1,10 @@
 #header {
   display: flex;
   justify-content: center;
-  justify-content: space-between;
 
-  img {
-    height: 30px;
+  .container {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
   }
 }
