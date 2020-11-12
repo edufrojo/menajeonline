@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="lista__titulo">¡Las mejores ofertas!</h1>
+  <div class="lista-articulos">
+    <mat-card class="example-card" *ngFor="let articulo of articulos">
+      <img
+        mat-card-image
+        src="{{ articulo.url_imagen }}"
+        alt="{{ articulo.descripcion }}"
+      />
+      <mat-card-content>
+        <p>
+          {{ articulo.PVP }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
