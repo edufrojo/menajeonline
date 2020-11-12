@@ -3,7 +3,16 @@
     <div class="container">Items</div>
   </section>
   <section class="search-welcome">
-    <div class="container">Search</div>
+    <div class="container">
+      <mat-form-field
+        class="input-buscar"
+        appearance="outline"
+        [style.fontSize.px]="39"
+      >
+        <mat-label>¿Qué estás buscando?</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
   </section>
   <section class="info-welcome">
     <div class="container">Info</div>

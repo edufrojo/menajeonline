@@ -1,0 +1,14 @@
+.search-welcome {
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .input-buscar {
+      width: 600px;
+    }
+
+    .mat-form-field-wrapper {
+      padding: 0 !important;
+    }
+  }
+}
