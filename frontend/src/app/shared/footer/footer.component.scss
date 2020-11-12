@@ -1,9 +1,13 @@
-#footer {
+footer {
   display: flex;
-  justify-content: center;
+  align-items: center;
   justify-content: space-between;
+  min-height: 70px;
+  background-color: black;
 
-  img {
-    height: 30px;
+  a {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
