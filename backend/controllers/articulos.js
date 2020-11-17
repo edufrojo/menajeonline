@@ -39,6 +39,29 @@ const getArticuloById = async (req, res) => {
   }
 };
 
+const getArticulosByPromotion = async (req, res) => {
+  try {
+    const promotion = req.params.promotion;
+
+    const page = Number(req.query.page) || 0;
+    const limitItems = 12;
+
+    articulos = await Articulo.find({ cod_promocion: promotion })
+      .skip(page * limitItems)
+      .limit(limitItems);
+
+    res.json({
+      ok: true,
+      articulos,
+    });
+  } catch (error) {
+    res.json({
+      ok: true,
+      msg: "No existen articulos",
+    });
+  }
+};
+
 const buscarArticulos = async (req, res = response) => {
   const busqueda = req.params.busqueda;
   const regex = new RegExp(busqueda, "i");
@@ -54,5 +77,6 @@ const buscarArticulos = async (req, res = response) => {
 module.exports = {
   getArticulos,
   getArticuloById,
+  getArticulosByPromotion,
   buscarArticulos,
 };
