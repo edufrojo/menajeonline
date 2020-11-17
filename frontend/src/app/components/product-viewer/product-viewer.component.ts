@@ -19,14 +19,18 @@ export class ProductViewerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getArticulosByPromotion(this.promotion);
+    this.getProductsByPromotionWelcome(this.promotion);
   }
 
-  getArticulosByPromotion(promotion) {
+  getProductsByPromotionWelcome(promotion) {
     this.articuloService
-      .getArticulosByPromotion(this.promotion)
+      .getProductsByPromotionWelcome(this.promotion)
       .subscribe((resp: any) => {
         this.articulos = resp.articulos.slice(0, 12);
       });
+  }
+
+  onProductClick(articulo: Articulo) {
+    this.router.navigate(['producto', articulo._id]);
   }
 }

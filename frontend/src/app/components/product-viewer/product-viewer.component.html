@@ -5,14 +5,20 @@
       <a class="subtitle">Ver colección</a>
     </div>
     <div class="list">
-      <div class="product" *ngFor="let articulo of articulos">
+      <div
+        class="product"
+        *ngFor="let articulo of articulos"
+        (click)="onProductClick(articulo)"
+      >
         <img
           mat-card-image
           class="product__image"
           src="{{ articulo.url_imagen }}"
-          alt="{{ articulo.descripcion }}"
+          alt="{{ articulo.descripcion }} {{ articulo.descripcion2 }}"
         />
-        <p class="product__title">{{ articulo.descripcion }}</p>
+        <p class="product__title">
+          {{ articulo.descripcion }} {{ articulo.descripcion2 }}
+        </p>
         <p class="product__price">{{ articulo.PVP }} EUR</p>
       </div>
     </div>
