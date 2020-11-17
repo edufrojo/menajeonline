@@ -15,9 +15,10 @@ import { ComponentsModule } from './../components/components.module';
 // Componentes páginas
 import { PagesComponent } from './pages.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
-  declarations: [PagesComponent, WelcomeComponent],
+  declarations: [PagesComponent, WelcomeComponent, ProductDetailComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -25,6 +26,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
     SharedModule,
     ComponentsModule,
   ],
-  exports: [PagesComponent, WelcomeComponent],
+  exports: [PagesComponent, WelcomeComponent, ProductDetailComponent],
 })
 export class PagesModule {}
