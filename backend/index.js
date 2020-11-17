@@ -4,10 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-/*
 const soap = require("soap");
 const xml2js = require("xml2js");
-*/
 
 const app = express();
 app.use(cors());
@@ -18,8 +16,6 @@ app.use("/api/todo", require("./routes/busquedas"));
 const { dbConnection } = require("./database/config");
 dbConnection();
 
-/*
-const Nomenclatura = require("./models/nomenclaturas");
 var urlSoap = process.env.SOAP_URL;
 var args = {
   pCliente: process.env.SOAP_USER,
@@ -27,6 +23,8 @@ var args = {
   pFormatoXML: "true",
 };
 
+/*
+const Nomenclatura = require("./models/nomenclaturas");
 
 soap.createClient(urlSoap, function (err, client) {
   client.Nomenclaturas(args, function (err, xml) {
@@ -37,7 +35,6 @@ soap.createClient(urlSoap, function (err, client) {
         const json = JSON.stringify(result.DATAPACKET.ROWDATA[0].ROW, null, 4);
 
         var nomenclaturas = JSON.parse(json);
-        console.log(nomenclaturas);
 
         Nomenclatura.insertMany(nomenclaturas)
           .then(function () {
@@ -46,12 +43,14 @@ soap.createClient(urlSoap, function (err, client) {
           .catch(function (error) {
             console.log(error);
           });
-        
       })
       .catch((err) => console.log(err));
   });
 });
 
+
+
+const Caracteristica = require("./models/caracteristica");
 
 soap.createClient(urlSoap, function (err, client) {
   client.ArticulosCaracteristicas(args, function (err, xml) {
@@ -66,7 +65,6 @@ soap.createClient(urlSoap, function (err, client) {
         Caracteristica.insertMany(caracteristicas)
           .then(function () {
             console.log("[INFO] Caracteristicas guardadas");
-            connection.close();
           })
           .catch(function (error) {
             console.log(error);
@@ -76,6 +74,9 @@ soap.createClient(urlSoap, function (err, client) {
   });
 });
 
+
+
+const Articulo = require("./models/articulo");
 
 soap.createClient(urlSoap, function (err, client) {
   client.Articulos(args, function (err, xml) {
@@ -90,7 +91,6 @@ soap.createClient(urlSoap, function (err, client) {
         Articulo.insertMany(articulos)
           .then(function () {
             console.log("[INFO] Artículos guardados");
-            connection.close();
           })
           .catch(function (error) {
             console.log(error);
@@ -100,6 +100,8 @@ soap.createClient(urlSoap, function (err, client) {
   });
 });
 
+/*
+const Promocion = require("./models/promocion");
 
 soap.createClient(urlSoap, function (err, client) {
   client.PromocionesCabecera(args, function (err, xml) {
@@ -114,7 +116,6 @@ soap.createClient(urlSoap, function (err, client) {
         Promocion.insertMany(promociones)
           .then(function () {
             console.log("[INFO] Promociones guardadas");
-            connection.close();
           })
           .catch(function (error) {
             console.log(error);
@@ -124,52 +125,51 @@ soap.createClient(urlSoap, function (err, client) {
   });
 });
 
-client.Nomenclaturas(args, function(err, xml) {
 
-  xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
 
-    .then(result => {
-
-      const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
-
-    }).catch(err => console.log(err));
-
+soap.createClient(urlSoap, function (err, client) {
+  client.Nomenclaturas(args, function(err, xml) {
+    xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
+      .then(result => {
+        const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
+      }).catch(err => console.log(err));
+  });
 });
 
+
+
+soap.createClient(urlSoap, function (err, client) {
 client.Proveedores(args, function(err, xml) {
-
-  xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
-
-    .then(result => {
-
-      const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
-
-    }).catch(err => console.log(err));
-
+    xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
+      .then(result => {
+        const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
+      }).catch(err => console.log(err));
+  });
 });
 
-client.PromocionesCabecera(args, function(err, xml) {
 
-  xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
+soap.createClient(urlSoap, function (err, client) {
+  client.PromocionesCabecera(args, function (err, xml) {
+    xml2js
+      .parseStringPromise(xml.return, { mergeAttrs: true })
 
-    .then(result => {
-
-      const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
-
-    }).catch(err => console.log(err));
-
+      .then((result) => {
+        const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
+        console.log(json);
+      })
+      .catch((err) => console.log(err));
+  });
 });
 
-client.ArticulosCaracteristicas(args, function(err, xml) {
 
-  xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
 
-    .then(result => {
-
-      const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
-
-    }).catch(err => console.log(err));
-
+soap.createClient(urlSoap, function (err, client) {
+  client.ArticulosCaracteristicas(args, function(err, xml) {
+    xml2js.parseStringPromise(xml.return, { mergeAttrs: true })
+      .then(result => {
+        const json = JSON.stringify(result.DATAPACKET.ROWDATA, null, 4);
+      }).catch(err => console.log(err));
+  });
 });
 
 */
