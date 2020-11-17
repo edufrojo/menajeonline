@@ -32,7 +32,7 @@ export class ArticuloService {
     );
   }
 
-  getArticulosByPromotion(promotion): Observable<any> {
+  getProductsByPromotion(promotion): Observable<any> {
     this.cargando = true;
 
     return this.http
@@ -45,6 +45,10 @@ export class ArticuloService {
           this.page += 1;
         })
       );
+  }
+
+  getProductsByPromotionWelcome(promotion): Observable<any> {
+    return this.http.get(`${this.uri}/articulos/promocion/${promotion}`);
   }
 
   getArticuloById(id): Observable<any> {
