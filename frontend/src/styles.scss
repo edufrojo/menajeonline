@@ -15,27 +15,28 @@ body {
   flex-direction: column;
 
   .wrapper-main {
-    margin-top: 64px;
     flex: 1;
+    margin-top: 64px;
+    padding-left: 27px;
+    padding-right: 27px;
   }
 }
 
 section {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .container {
+  margin: 0 auto;
   max-width: 1024px;
-  padding-left: 15px;
-  padding-right: 15px;
   width: 100%;
 }
 
 app-header {
   position: fixed;
-  position: -webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; /* Sets the sticky toolbar to be on top */
+  position: -webkit-sticky;
+  top: 0;
   width: 100%;
-  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  z-index: 1000;
 }
