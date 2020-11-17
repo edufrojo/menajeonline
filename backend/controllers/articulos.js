@@ -3,7 +3,7 @@ const Articulo = require("../models/articulo");
 const getArticulos = async (req, res) => {
   try {
     const page = Number(req.query.page) || 0;
-    const limitItems = 12;
+    const limitItems = 50;
 
     articulos = await Articulo.find()
       .skip(page * limitItems)
@@ -44,7 +44,7 @@ const getArticulosByPromotion = async (req, res) => {
     const promotion = req.params.promotion;
 
     const page = Number(req.query.page) || 0;
-    const limitItems = 12;
+    const limitItems = 50;
 
     articulos = await Articulo.find({ cod_promocion: promotion })
       .skip(page * limitItems)

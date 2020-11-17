@@ -19,7 +19,6 @@ export class ProductViewerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.promotion);
     this.getArticulosByPromotion(this.promotion);
   }
 
@@ -27,7 +26,7 @@ export class ProductViewerComponent implements OnInit {
     this.articuloService
       .getArticulosByPromotion(this.promotion)
       .subscribe((resp: any) => {
-        this.articulos = resp.articulos;
+        this.articulos = resp.articulos.slice(0, 12);
       });
   }
 }
