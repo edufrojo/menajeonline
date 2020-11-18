@@ -11,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/articulos", require("./routes/articulos"));
+app.use("/api/promociones", require("./routes/promociones"));
 app.use("/api/todo", require("./routes/busquedas"));
 
 const { dbConnection } = require("./database/config");
