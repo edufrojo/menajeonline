@@ -30,7 +30,7 @@ export class ProductViewerComponent implements OnInit {
     this.articuloService
       .getProductsByPromotionWelcome(promotion)
       .subscribe((resp: any) => {
-        this.articulos = resp.articulos.reverse().slice(0, 12);
+        this.articulos = resp.articulos.reverse().slice(0, 8);
         this.articulosLength = this.articulos.length;
       });
   }
