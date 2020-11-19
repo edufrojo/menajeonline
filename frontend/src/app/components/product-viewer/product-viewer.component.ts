@@ -10,8 +10,12 @@ import { ArticuloService } from './../../services/articulo.service';
   styleUrls: ['./product-viewer.component.scss'],
 })
 export class ProductViewerComponent implements OnInit {
+  @Input() public promotionId: string;
+  @Input() public promotionCod: string;
+  @Input() public promotionTitle: string;
+
   articulos: Articulo[];
-  @Input() public promotion: string;
+  articulosLength = 0;
 
   constructor(
     private articuloService: ArticuloService,
@@ -19,18 +23,23 @@ export class ProductViewerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getProductsByPromotionWelcome(this.promotion);
+    this.getProductsByPromotionWelcome(this.promotionCod);
   }
 
   getProductsByPromotionWelcome(promotion) {
     this.articuloService
-      .getProductsByPromotionWelcome(this.promotion)
+      .getProductsByPromotionWelcome(promotion)
       .subscribe((resp: any) => {
-        this.articulos = resp.articulos.slice(0, 12);
+        this.articulos = resp.articulos.reverse().slice(0, 12);
+        this.articulosLength = this.articulos.length;
       });
   }
 
   onProductClick(articulo: Articulo) {
     this.router.navigate(['producto', articulo._id]);
+  }
+
+  onPromotionClick() {
+    this.router.navigate(['promocion', this.promotionId]);
   }
 }

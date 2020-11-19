@@ -1,8 +1,17 @@
-<section class="product-viewer">
+<section class="product-viewer" *ngIf="articulosLength > 0">
   <div class="container">
     <div class="links">
-      <a class="title">Navidad</a>
-      <a class="subtitle">Ver colección</a>
+      <h3 class="title">
+        <a title="{{ promotionTitle }}" (click)="onPromotionClick()">{{
+          promotionTitle
+        }}</a>
+      </h3>
+      <a
+        class="link"
+        title="Ir a {{ promotionTitle }}"
+        (click)="onPromotionClick()"
+        >Ver promoción</a
+      >
     </div>
     <div class="list">
       <div
