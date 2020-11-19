@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Promocion } from './../../models/promocion.model';
+import { PromocionService } from '../../services/promocion.service';
 
 @Component({
   selector: 'app-welcome',
@@ -6,7 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  constructor() {}
+  promociones: Promocion[];
 
-  ngOnInit(): void {}
+  @Input() public promotionTitle: String;
+  @Input() public promotionCod: String;
+  @Input() public promotionId: String;
+
+  constructor(
+    private promocionService: PromocionService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.getPromociones();
+  }
+
+  getPromociones() {
+    this.promocionService.getPromociones().subscribe((resp: any) => {
+      this.promociones = resp.promociones;
+      this.promociones.reverse();
+    });
+  }
 }

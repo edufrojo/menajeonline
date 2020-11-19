@@ -1,12 +1,4 @@
 <div id="page-welcome">
-  <section class="items-welcome">
-    <app-product-viewer [promotion]="202037"></app-product-viewer>
-    <app-product-viewer [promotion]="202028"></app-product-viewer>
-    <app-product-viewer [promotion]="202027"></app-product-viewer>
-    <app-product-viewer [promotion]="202026"></app-product-viewer>
-    <app-product-viewer [promotion]="202025"></app-product-viewer>
-    <app-product-viewer [promotion]="202023"></app-product-viewer>
-  </section>
   <section class="search-welcome">
     <div class="container">
       <mat-form-field
@@ -19,6 +11,14 @@
       </mat-form-field>
     </div>
   </section>
+  <div class="list-promotions" *ngFor="let promocion of promociones">
+    <app-product-viewer
+      *ngIf="promocion.cod_promocion != 202009"
+      [promotionCod]="promocion.cod_promocion"
+      [promotionTitle]="promocion.denominacion"
+      [promotionId]="promocion._id"
+    ></app-product-viewer>
+  </div>
   <section class="info-welcome">
     <div class="container">Info</div>
   </section>
@@ -28,6 +28,7 @@
         <div class="contact__map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5984.291464861368!2d2.1837002983361473!3d41.414355062694575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x42b15ed2383dfd0!2sMenaje%20Hogar%20Jan%C3%A9!5e0!3m2!1sca!2ses!4v1605184400191!5m2!1sca!2ses"
+            title="Ubicación de Menaje Jane"
             frameborder="0"
           ></iframe>
         </div>
