@@ -4,6 +4,14 @@ const getPromociones = async (req, res) => {
   try {
     promociones = await Promocion.find();
 
+    promociones = promociones.filter(function (item) {
+      return (
+        item.cod_promocion != "202009" &&
+        item.cod_promocion != "202038" &&
+        item.cod_promocion != "202039"
+      );
+    });
+
     res.json({
       ok: true,
       promociones,
