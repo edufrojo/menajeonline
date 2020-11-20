@@ -130,7 +130,7 @@ soap.createClient(urlSoap, function (err, client) {
 });
 
 
-*/
+
 const PromocionLinea = require("./models/promocion-linea");
 
 soap.createClient(urlSoap, function (err, client) {
