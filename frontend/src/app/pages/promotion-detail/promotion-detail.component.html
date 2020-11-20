@@ -9,13 +9,13 @@
         <img
           mat-card-image
           class="product__image"
-          src="{{ articulo.url_imagen }}"
-          alt="{{ articulo.descripcion }} {{ articulo.descripcion2 }}"
+          src="{{ articulo?.url_imagen }}"
+          alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
         <p class="product__title">
-          {{ articulo.descripcion }} {{ articulo.descripcion2 }}
+          {{ articulo?.descripcion }} {{ articulo?.descripcion2 }}
         </p>
-        <p class="product__price">{{ articulo.PVP }} EUR</p>
+        <p class="product__price">{{ articulo?.PVP }} EUR</p>
       </div>
     </div>
   </div>
