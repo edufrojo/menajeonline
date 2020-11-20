@@ -12,6 +12,7 @@ export class ArticuloService {
   public uri: string = environment.base_url;
   public cargando: boolean = false;
   private page = 0;
+  private promotionId = '';
 
   constructor(private http: HttpClient) {}
 
@@ -34,6 +35,11 @@ export class ArticuloService {
 
   getProductsByPromotion(promotion): Observable<any> {
     this.cargando = true;
+
+    if (this.promotionId !== promotion) {
+      this.promotionId = promotion;
+      this.page = 0;
+    }
 
     return this.http
       .get(`${this.uri}/articulos/promocion/${promotion}`, {

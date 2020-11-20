@@ -13,10 +13,9 @@
   </section>
   <div class="list-promotions" *ngFor="let promocion of promociones">
     <app-product-viewer
-      *ngIf="promocion.cod_promocion != 202009"
-      [promotionCod]="promocion.cod_promocion"
-      [promotionTitle]="promocion.denominacion"
-      [promotionId]="promocion._id"
+      [promotionCod]="promocion?.cod_promocion"
+      [promotionTitle]="promocion?.denominacion"
+      [promotionId]="promocion?._id"
     ></app-product-viewer>
   </div>
   <section class="info-welcome">
