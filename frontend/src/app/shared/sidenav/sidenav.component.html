@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">Hogar Menaje Jané </mat-toolbar>
+<mat-nav-list>
+  <div *ngFor="let promocion of promociones">
+    <a mat-list-item (click)="onPromocionClick(promocion)">{{
+      promocion.denominacion
+    }}</a>
+  </div>
+</mat-nav-list>
