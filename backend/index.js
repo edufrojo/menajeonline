@@ -14,6 +14,7 @@ app.use(bodyParser.text({ type: "text/*" }));
 app.use("/api/articulos", require("./routes/articulos"));
 app.use("/api/promociones", require("./routes/promociones"));
 app.use("/api/promociones-lineas", require("./routes/promociones-lineas"));
+app.use("/api/caracteristicas", require("./routes/caracteristicas"));
 app.use("/api/todo", require("./routes/busquedas"));
 
 const { dbConnection } = require("./database/config");
