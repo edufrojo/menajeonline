@@ -55,7 +55,6 @@ export class PromotionDetailComponent implements OnInit {
         .getProductsByPromotion(this.promocion.cod_promocion)
         .subscribe((resp: any) => {
           this.articulos = resp.articulos;
-          console.log(this.articulos);
         });
     });
   }

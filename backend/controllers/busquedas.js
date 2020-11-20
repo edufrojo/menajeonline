@@ -15,8 +15,6 @@ const getTodo = async (req, res) => {
     .skip(page * limitItems)
     .limit(limitItems);
 
-  console.log("Page: " + page);
-
   res.json({
     ok: true,
     articulos,
