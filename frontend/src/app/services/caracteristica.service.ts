@@ -15,8 +15,11 @@ export class CaracteristicaService {
   getCaracteristicas(): Observable<any> {
     return this.http.get(`${this.uri}/caracteristicas`);
   }
-
   getCaracteristicaById(id): Observable<any> {
     return this.http.get(`${this.uri}/caracteristicas/${id}`);
+  }
+
+  getCaracteristicaByCod(codArticulo): Observable<any> {
+    return this.http.get(`${this.uri}/caracteristicas/${codArticulo}`);
   }
 }

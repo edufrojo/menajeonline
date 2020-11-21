@@ -1,0 +1,32 @@
+.product-detail {
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+
+    @media all and (max-width: 59.99em) {
+    }
+  }
+
+  &__image {
+    img {
+      width: 100%;
+    }
+
+    @media all and (min-width: 60em) {
+      max-width: 60%;
+    }
+  }
+
+  &__info {
+    padding-top: 40px;
+
+    @media all and (min-width: 60em) {
+      padding-top: 0px;
+      max-width: 35%;
+    }
+  }
+}

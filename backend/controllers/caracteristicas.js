@@ -11,7 +11,7 @@ const getCaracteristicas = async (req, res) => {
   } catch (error) {
     res.json({
       ok: true,
-      msg: "No existen promociones lineas",
+      msg: "No existen caracteristicas",
     });
   }
 };
@@ -29,7 +29,27 @@ const getCaracteristicaById = async (req, res) => {
   } catch (error) {
     res.json({
       ok: true,
-      msg: "No existe promocion linea",
+      msg: "No existe caracteristica id",
+    });
+  }
+};
+
+const getCaracteristicaByCod = async (req, res) => {
+  const codArticulo = req.params.codArticulo;
+
+  try {
+    const caracteristica = await Caracteristica.findOne({
+      cod_articulo: codArticulo,
+    });
+
+    res.json({
+      ok: true,
+      caracteristica,
+    });
+  } catch (error) {
+    res.json({
+      ok: true,
+      msg: "No existe caracteristica",
     });
   }
 };
@@ -37,4 +57,5 @@ const getCaracteristicaById = async (req, res) => {
 module.exports = {
   getCaracteristicas,
   getCaracteristicaById,
+  getCaracteristicaByCod,
 };
