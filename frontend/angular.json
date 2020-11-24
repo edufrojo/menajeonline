@@ -23,7 +23,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/manifest.webmanifest",
+              "src/favicon.ico",
+              "src/favicon-16x16.ico",
+              "src/favicon-32x32.ico",
+              "src/apple-touch-icon.png",
+              "src/android-chrome-512x512.png",
+              "src/android-chrome-192x192.png",
+              "src/assets"
+            ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
