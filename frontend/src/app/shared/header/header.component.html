@@ -1,15 +1,18 @@
 <mat-toolbar id="header" color="primary">
   <div class="container">
-    <button
-      mat-icon-button
-      aria-label="menu"
-      class="menu"
-      (click)="inputSideNav.toggle()"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="search" class="search">
-      <mat-icon>search</mat-icon>
-    </button>
+    <div class="left">
+      <button mat-icon-button aria-label="menu" (click)="inputSideNav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="inicio" routerLink="/welcome">
+        <img class="logo" src="./../../../android-chrome-192x192.png" alt="" />
+        Menaje Hogar Jané
+      </button>
+    </div>
+    <div class="right">
+      <button mat-icon-button aria-label="search" routerLink="/search">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
   </div>
 </mat-toolbar>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { Articulo } from '../../models/articulo.model';
@@ -20,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private articuloService: ArticuloService,
     private caracteristicaService: CaracteristicaService,
+    private location: Location,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -45,5 +47,9 @@ export class ProductDetailComponent implements OnInit {
         this.caracteristica = resp.caracteristica;
         console.log('Caracteristica: ' + this.caracteristica);
       });
+  }
+
+  backClicked() {
+    this.location.back();
   }
 }

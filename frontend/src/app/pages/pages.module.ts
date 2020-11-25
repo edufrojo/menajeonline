@@ -17,6 +17,7 @@ import { PagesComponent } from './pages.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PromotionDetailComponent } from './promotion-detail/promotion-detail.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     WelcomeComponent,
     PromotionDetailComponent,
     ProductDetailComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -32,11 +34,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     SharedModule,
     ComponentsModule,
   ],
-  exports: [
-    PagesComponent,
-    WelcomeComponent,
-    PromotionDetailComponent,
-    ProductDetailComponent,
-  ],
+  exports: [],
 })
 export class PagesModule {}

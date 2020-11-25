@@ -29,7 +29,7 @@ const getCaracteristicaById = async (req, res) => {
   } catch (error) {
     res.json({
       ok: true,
-      msg: "No existe caracteristica id",
+      msg: "No existe caracteristica",
     });
   }
 };

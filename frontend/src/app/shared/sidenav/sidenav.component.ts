@@ -33,4 +33,9 @@ export class SidenavComponent implements OnInit {
     window.location.href = 'promocion/' + promocion._id;
     //this.router.navigate(['promocion', promocion._id]);
   }
+
+  onChangePage(path) {
+    this.sidenavClose.emit();
+    //this.router.navigate(['promocion', promocion._id]);
+  }
 }

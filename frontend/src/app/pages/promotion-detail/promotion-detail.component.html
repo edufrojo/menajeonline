@@ -1,5 +1,6 @@
 <section class="promotion-detail">
   <div class="container">
+    <app-boton-atras></app-boton-atras>
     <h2 class="title">{{ promocion?.denominacion }}</h2>
     <div class="list">
       <div
@@ -10,8 +11,10 @@
         <img
           mat-card-image
           class="product__image"
+          loading="lazy"
           src="{{ articulo?.url_imagen }}"
           alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
+          title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
         <p class="product__title">
           {{ articulo?.descripcion }} {{ articulo?.descripcion2 }}
@@ -21,3 +24,4 @@
     </div>
   </div>
 </section>
+<app-boton-top></app-boton-top>

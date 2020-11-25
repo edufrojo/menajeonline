@@ -1,20 +1,5 @@
-.search-welcome {
+.contact {
   .container {
-    display: flex;
-    justify-content: center;
-
-    .input-buscar {
-      width: 600px;
-    }
-
-    .mat-form-field-wrapper {
-      padding: 0 !important;
-    }
-  }
-}
-
-.contact-welcome {
-  .contact__sections {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,7 +8,7 @@
     justify-content: space-between;
   }
 
-  .contact__dates {
+  &__dates {
     padding: 20px;
     margin: 0 auto;
 
@@ -38,7 +23,7 @@
     }
   }
 
-  .contact__map {
+  &__map {
     height: 300px;
     width: 100%;
     max-width: 675px;

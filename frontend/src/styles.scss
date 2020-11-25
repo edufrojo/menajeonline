@@ -9,6 +9,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+section {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
 .wrapper {
   display: flex;
   min-height: 100vh;
@@ -22,21 +27,8 @@ body {
   }
 }
 
-section {
-  margin-top: 75px;
-  margin-bottom: 75px;
-}
-
 .container {
   margin: 0 auto;
   max-width: 1024px;
   width: 100%;
-}
-
-app-header {
-  position: fixed;
-  position: -webkit-sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
 }

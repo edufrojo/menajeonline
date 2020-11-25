@@ -22,8 +22,10 @@
         <img
           mat-card-image
           class="product__image"
+          loading="lazy"
           src="{{ articulo.url_imagen }}"
           alt="{{ articulo.descripcion }} {{ articulo.descripcion2 }}"
+          title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
         <p class="product__title">
           {{ articulo.descripcion }} {{ articulo.descripcion2 }}
