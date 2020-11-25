@@ -8,10 +8,14 @@ const getTodo = async (req, res) => {
   const regex = new RegExp(busqueda, "i");
 
   totalArticulos = await Articulo.find({
-    descripcion: regex,
+    cod_promocion: { $nin: ["202009", "202038", "202039", null, ""] },
+    $or: [{ descripcion: regex }, { cod_marca: regex }, { ref_pve: regex }],
   }).countDocuments();
 
-  articulos = await Articulo.find({ descripcion: regex })
+  articulos = await Articulo.find({
+    cod_promocion: { $nin: ["202009", "202038", "202039", null, ""] },
+    $or: [{ descripcion: regex }, { cod_marca: regex }, { ref_pve: regex }],
+  })
     .skip(page * limitItems)
     .limit(limitItems);
 
