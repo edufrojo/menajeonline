@@ -1,0 +1,39 @@
+<section class="search">
+  <div class="container">
+    <div class="search__data">
+      <mat-form-field class="input-buscar" appearance="outline">
+        <mat-label>¿Qué producto estás buscando?</mat-label>
+        <input
+          matInput
+          (keydown.enter)="buscar(txtTermino.value)"
+          #txtTermino
+        />
+      </mat-form-field>
+      <p *ngIf="articulos.length !== 0">
+        Se han encontrado {{ totalArticulos }} coincidencias
+      </p>
+    </div>
+
+    <div class="search__list">
+      <div
+        class="product"
+        *ngFor="let articulo of articulos"
+        (click)="onArticuloClick(articulo)"
+      >
+        <img
+          mat-card-image
+          class="product__image"
+          loading="lazy"
+          src="{{ articulo.url_imagen }}"
+          alt="{{ articulo.descripcion }} {{ articulo.descripcion2 }}"
+          title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
+        />
+        <p class="product__title">
+          {{ articulo.descripcion }} {{ articulo.descripcion2 }}
+        </p>
+        <p class="product__price">{{ articulo.PVP }} EUR</p>
+      </div>
+    </div>
+  </div>
+</section>
+<app-boton-top></app-boton-top>
