@@ -57,7 +57,7 @@ export class ArticuloService {
     return this.http.get(`${this.uri}/articulos/promocion/${promotion}`);
   }
 
-  getArticuloById(id): Observable<any> {
-    return this.http.get(`${this.uri}/articulos/${id}`);
+  getArticuloByCod(cod): Observable<any> {
+    return this.http.get(`${this.uri}/articulos/${cod}`);
   }
 }

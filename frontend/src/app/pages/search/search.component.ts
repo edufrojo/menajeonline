@@ -49,6 +49,6 @@ export class SearchComponent implements OnInit {
   }
 
   onArticuloClick(articulo: Articulo) {
-    this.router.navigate(['producto', articulo._id]);
+    this.router.navigate(['producto/' + articulo.cod_articulo]);
   }
 }

@@ -2,6 +2,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Rutas
+import { RouterModule } from '@angular/router';
+
 // Angular Material
 import { MaterialModule } from './../material.module';
 
@@ -21,7 +24,7 @@ import { BotonTopComponent } from './boton-top/boton-top.component';
     BotonAtrasComponent,
     BotonTopComponent,
   ],
-  imports: [CommonModule, MaterialModule, SharedModule],
+  imports: [CommonModule, RouterModule, MaterialModule, SharedModule],
   exports: [
     ProductViewerComponent,
     WelcomeInfoComponent,

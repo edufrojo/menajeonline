@@ -5,5 +5,7 @@
       promocion.denominacion
     }}</a>
   </div>
-  <div><a mat-list-item routerLink="/search">BUSCADOR</a></div>
+  <div>
+    <a mat-list-item (click)="onChangePage('/search')">BUSCADOR</a>
+  </div>
 </mat-nav-list>

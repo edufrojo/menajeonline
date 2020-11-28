@@ -10,7 +10,6 @@ import { ArticuloService } from './../../services/articulo.service';
   styleUrls: ['./product-viewer.component.scss'],
 })
 export class ProductViewerComponent implements OnInit {
-  @Input() public promotionId: string;
   @Input() public promotionCod: string;
   @Input() public promotionTitle: string;
 
@@ -36,10 +35,10 @@ export class ProductViewerComponent implements OnInit {
   }
 
   onProductClick(articulo: Articulo) {
-    this.router.navigate(['producto', articulo._id]);
+    this.router.navigate(['producto/' + articulo.cod_articulo]);
   }
 
   onPromotionClick() {
-    this.router.navigate(['promocion', this.promotionId]);
+    this.router.navigate(['promocion/' + this.promotionCod]);
   }
 }

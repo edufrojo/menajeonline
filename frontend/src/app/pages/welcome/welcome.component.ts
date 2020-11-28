@@ -14,7 +14,6 @@ export class WelcomeComponent implements OnInit {
 
   @Input() public promotionTitle: String;
   @Input() public promotionCod: String;
-  @Input() public promotionId: String;
 
   constructor(
     private promocionService: PromocionService,

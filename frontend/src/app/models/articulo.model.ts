@@ -1,5 +1,4 @@
 export interface Articulo {
-  _id: Array<any>;
   cod_articulo: Array<any>;
   descripcion: Array<any>;
   descripcion2: Array<any>;

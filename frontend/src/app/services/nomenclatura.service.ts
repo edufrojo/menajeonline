@@ -7,16 +7,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class CaracteristicaService {
+export class NomenclaturaService {
   public uri: string = environment.base_url;
 
   constructor(private http: HttpClient) {}
 
-  getCaracteristicas(): Observable<any> {
-    return this.http.get(`${this.uri}/caracteristicas`);
+  getNomenclaturas(): Observable<any> {
+    return this.http.get(`${this.uri}/nomenclaturas`);
   }
 
-  getCaracteristicaByCod(cod): Observable<any> {
-    return this.http.get(`${this.uri}/caracteristicas/${cod}`);
+  getNomenclaturasByCod(cod): Observable<any> {
+    return this.http.get(`${this.uri}/nomenclaturas/${cod}`);
   }
 }

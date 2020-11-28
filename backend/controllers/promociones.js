@@ -24,11 +24,11 @@ const getPromociones = async (req, res) => {
   }
 };
 
-const getPromocionById = async (req, res) => {
-  const id = req.params.id;
+const getPromocionByCod = async (req, res) => {
+  const cod = req.params.cod;
 
   try {
-    const promocion = await Promocion.findById(id);
+    const promocion = await Promocion.findOne({ cod_promocion: cod });
 
     res.json({
       ok: true,
@@ -44,5 +44,5 @@ const getPromocionById = async (req, res) => {
 
 module.exports = {
   getPromociones,
-  getPromocionById,
+  getPromocionByCod,
 };

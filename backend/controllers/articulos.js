@@ -21,11 +21,11 @@ const getArticulos = async (req, res) => {
   }
 };
 
-const getArticuloById = async (req, res) => {
-  const id = req.params.id;
+const getArticuloByCod = async (req, res) => {
+  const cod = req.params.cod;
 
   try {
-    const articulo = await Articulo.findById(id);
+    const articulo = await Articulo.findOne({ cod_articulo: cod });
 
     res.json({
       ok: true,
@@ -76,7 +76,7 @@ const buscarArticulos = async (req, res = response) => {
 
 module.exports = {
   getArticulos,
-  getArticuloById,
+  getArticuloByCod,
   getArticulosByPromotion,
   buscarArticulos,
 };

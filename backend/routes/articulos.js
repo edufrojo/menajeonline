@@ -3,13 +3,13 @@ const { Router } = require("express");
 const {
   getArticulos,
   getArticulosByPromotion,
-  getArticuloById,
+  getArticuloByCod,
 } = require("../controllers/articulos");
 
 const router = Router();
 
 router.get("/", getArticulos);
 router.get("/promocion/:promotion", getArticulosByPromotion);
-router.get("/:id", getArticuloById);
+router.get("/:cod", getArticuloByCod);
 
 module.exports = router;

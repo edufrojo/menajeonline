@@ -30,9 +30,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getArticulo() {
-    const id = this.activatedRoute.snapshot.params.id;
+    const cod = this.activatedRoute.snapshot.params.cod;
 
-    this.articuloService.getArticuloById(id).subscribe((resp: any) => {
+    this.articuloService.getArticuloByCod(cod).subscribe((resp: any) => {
       this.articulo = resp.articulo;
 
       this.getCaracteristica(this.articulo.cod_articulo);

@@ -16,30 +16,12 @@ const getCaracteristicas = async (req, res) => {
   }
 };
 
-const getCaracteristicaById = async (req, res) => {
-  const id = req.params.id;
-
-  try {
-    const caracteristica = await Caracteristica.findById(id);
-
-    res.json({
-      ok: true,
-      caracteristica,
-    });
-  } catch (error) {
-    res.json({
-      ok: true,
-      msg: "No existe caracteristica",
-    });
-  }
-};
-
 const getCaracteristicaByCod = async (req, res) => {
-  const codArticulo = req.params.codArticulo;
+  const cod = req.params.cod;
 
   try {
     const caracteristica = await Caracteristica.findOne({
-      cod_articulo: codArticulo,
+      cod_articulo: cod,
     });
 
     res.json({
@@ -56,6 +38,5 @@ const getCaracteristicaByCod = async (req, res) => {
 
 module.exports = {
   getCaracteristicas,
-  getCaracteristicaById,
   getCaracteristicaByCod,
 };

@@ -1,5 +1,4 @@
 export interface Promocion {
-  _id: Array<any>;
   cod_promocion: Array<any>;
   denominacion: Array<any>;
   fecha_inicial_venta_socio: Array<any>;

@@ -15,8 +15,8 @@ const routes: Routes = [
     children: [
       { path: 'welcome', component: WelcomeComponent },
       { path: 'search', component: SearchComponent },
-      { path: 'promocion/:id', component: PromotionDetailComponent },
-      { path: 'producto/:id', component: ProductDetailComponent },
+      { path: 'promocion/:cod', component: PromotionDetailComponent },
+      { path: 'producto/:cod', component: ProductDetailComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     ],
   },

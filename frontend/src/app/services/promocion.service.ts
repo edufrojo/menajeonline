@@ -16,7 +16,7 @@ export class PromocionService {
     return this.http.get(`${this.uri}/promociones`);
   }
 
-  getPromocionById(id): Observable<any> {
-    return this.http.get(`${this.uri}/promociones/${id}`);
+  getPromocionByCod(cod): Observable<any> {
+    return this.http.get(`${this.uri}/promociones/${cod}`);
   }
 }

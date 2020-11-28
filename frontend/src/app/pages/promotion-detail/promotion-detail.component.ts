@@ -47,9 +47,9 @@ export class PromotionDetailComponent implements OnInit {
   }
 
   loadData() {
-    const id = this.activatedRoute.snapshot.params.id;
+    const cod = this.activatedRoute.snapshot.params.cod;
 
-    this.promocionService.getPromocionById(id).subscribe((resp: any) => {
+    this.promocionService.getPromocionByCod(cod).subscribe((resp: any) => {
       this.promocion = resp.promocion;
 
       this.articuloService
@@ -61,6 +61,6 @@ export class PromotionDetailComponent implements OnInit {
   }
 
   onProductClick(articulo: Articulo) {
-    this.router.navigate(['producto', articulo._id]);
+    this.router.navigate(['producto/' + articulo.cod_articulo]);
   }
 }

@@ -16,7 +16,9 @@ export class SidenavComponent implements OnInit {
   constructor(
     private promocionService: PromocionService,
     private router: Router
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     this.getPromociones();
@@ -30,12 +32,11 @@ export class SidenavComponent implements OnInit {
 
   onPromocionClick(promocion: Promocion) {
     this.sidenavClose.emit();
-    window.location.href = 'promocion/' + promocion._id;
-    //this.router.navigate(['promocion', promocion._id]);
+    this.router.navigate(['/promocion/' + promocion.cod_promocion]);
   }
 
   onChangePage(path) {
     this.sidenavClose.emit();
-    //this.router.navigate(['promocion', promocion._id]);
+    this.router.navigate(['/search']);
   }
 }
