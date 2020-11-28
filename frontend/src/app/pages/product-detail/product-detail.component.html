@@ -2,24 +2,29 @@
   <div class="container">
     <app-boton-atras></app-boton-atras>
     <div class="product-wrapper">
-      <div class="product-detail__image">
+      <div class="product-detail__image-container">
         <img
           src="{{ articulo?.url_imagen }}"
+          class="product-detail__image"
           loading="lazy"
           alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
           title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
       </div>
-      <div class="product-detail__info">
-        <p>{{ articulo?.cod_marca }}</p>
-        <h2>
+      <div class="product-detail__info-container">
+        <p class="product-detail__marca">{{ articulo?.cod_marca }}</p>
+        <h2 class="product-detail__descripcion">
           <strong
             >{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}</strong
           >
         </h2>
-        <p>{{ caracteristica?.caracteristicas }}</p>
-        <p>{{ articulo?.PVP }} EUR</p>
-        <p>REF: {{ articulo?.ref_pve }}</p>
+        <p class="product-detail__precio">
+          <b>{{ articulo?.PVP }} EUR</b>
+        </p>
+        <p class="product-detail__caracteristica">
+          {{ caracteristica?.caracteristicas }}
+        </p>
+        <p class="product-detail__ref">REF: {{ articulo?.ref_pve }}</p>
       </div>
     </div>
   </div>
