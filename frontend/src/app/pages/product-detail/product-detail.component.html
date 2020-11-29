@@ -2,7 +2,7 @@
   <div class="container">
     <app-boton-atras></app-boton-atras>
     <div class="product-wrapper">
-      <div class="product-detail__image-container">
+      <figure class="product-detail__figure">
         <img
           src="{{ articulo?.url_imagen }}"
           class="product-detail__image"
@@ -10,8 +10,8 @@
           alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
           title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
-      </div>
-      <div class="product-detail__info-container">
+      </figure>
+      <div class="product-detail__info">
         <p class="product-detail__marca">{{ articulo?.cod_marca }}</p>
         <h2 class="product-detail__descripcion">
           <strong
@@ -25,6 +25,11 @@
           {{ caracteristica?.caracteristicas }}
         </p>
         <p class="product-detail__ref">REF: {{ articulo?.ref_pve }}</p>
+        <p class="product-detail__ref">
+          Disponibilidad
+          <label *ngIf="stock?.existencias_disponibles >= 20">Normal</label>
+          <label *ngIf="stock?.existencias_disponibles < 20">Baja</label>
+        </p>
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ app.use(bodyParser.text({ type: "text/*" }));
 app.use("/api/articulos", require("./routes/articulos"));
 app.use("/api/promociones", require("./routes/promociones"));
 app.use("/api/caracteristicas", require("./routes/caracteristicas"));
+app.use("/api/stocks", require("./routes/stocks"));
 app.use("/api/nomenclaturas", require("./routes/nomenclaturas"));
 app.use("/api/todo", require("./routes/busquedas"));
 
