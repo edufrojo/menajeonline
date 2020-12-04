@@ -32,13 +32,13 @@ const actualizarCaracteristicas = async () => {
 
             Caracteristica.insertMany(caracteristicas)
               .then(function () {
-                console.log("[INFO] Caracteristicas guardadas");
+                console.log("[INFO] :: Caracteristicas guardadas");
               })
               .catch(function (error) {
                 console.log(error);
               });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => actualizarCaracteristicas());
       });
     });
   } catch (error) {

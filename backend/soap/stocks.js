@@ -38,7 +38,7 @@ const actualizarStocks = async () => {
                 console.log(error);
               });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => actualizarStocks());
       });
     });
   } catch (error) {

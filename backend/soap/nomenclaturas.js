@@ -38,7 +38,7 @@ const actualizarNomenclaturas = async () => {
                 console.log(error);
               });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => actualizarNomenclaturas());
       });
     });
   } catch (error) {

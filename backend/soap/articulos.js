@@ -32,13 +32,13 @@ const actualizarArticulos = async () => {
 
             Articulo.insertMany(articulos)
               .then(function () {
-                console.log("[INFO] Artículos actualizados");
+                console.log("[INFO] :: Artículos actualizados");
               })
               .catch(function (error) {
                 console.log(error);
               });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => actualizarArticulos());
       });
     });
   } catch (error) {

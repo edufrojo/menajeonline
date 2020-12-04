@@ -32,13 +32,13 @@ const actualizarPromociones = async () => {
 
             Promocion.insertMany(promociones)
               .then(function () {
-                console.log("[INFO] Promociones actualizadas");
+                console.log("[INFO] :: Promociones guardadas");
               })
               .catch(function (error) {
                 console.log(error);
               });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => actualizarPromociones());
       });
     });
   } catch (error) {
