@@ -18,6 +18,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PromotionDetailComponent } from './promotion-detail/promotion-detail.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SearchComponent } from './search/search.component';
+import { DepartamentsComponent } from './departaments/departaments.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SearchComponent } from './search/search.component';
     PromotionDetailComponent,
     ProductDetailComponent,
     SearchComponent,
+    DepartamentsComponent,
   ],
   imports: [
     CommonModule,
