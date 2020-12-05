@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -18,6 +19,8 @@ export class PromotionDetailComponent implements OnInit {
   articulos: Articulo[];
 
   constructor(
+    private titleService: Title,
+    private metaService: Meta,
     private promocionService: PromocionService,
     private articuloService: ArticuloService,
     private router: Router,
@@ -51,6 +54,15 @@ export class PromotionDetailComponent implements OnInit {
 
     this.promocionService.getPromocionByCod(cod).subscribe((resp: any) => {
       this.promocion = resp.promocion;
+
+      this.titleService.setTitle(
+        this.promocion.denominacion + ' - Menaje Hogar Jané'
+      );
+
+      this.metaService.addTags([
+        { name: 'keywords', content: 'Menaje, Hogar, Jardin' },
+        { name: 'description', content: 'Lista de productos de la promocion' },
+      ]);
 
       this.articuloService
         .getProductsByPromotion(this.promocion.cod_promocion)

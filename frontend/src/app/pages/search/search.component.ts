@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
+
 import { Router } from '@angular/router';
 
 import { SearchService } from '../../services/search.service';
@@ -16,9 +18,15 @@ export class SearchComponent implements OnInit {
 
   public texto: string;
 
-  constructor(private searchService: SearchService, private router: Router) {}
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+    private searchService: SearchService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.setSEO('Buscador de productos');
     this.articulosTemp = this.articulos;
   }
 
@@ -46,6 +54,15 @@ export class SearchComponent implements OnInit {
         });
       }
     }
+  }
+
+  setSEO(nombre) {
+    this.titleService.setTitle(nombre + ' - Menaje Hogar Jané');
+
+    this.metaService.addTags([
+      { name: 'keywords', content: 'Menaje, Hogar, Jardin' },
+      { name: 'description', content: 'Buscador de productos' },
+    ]);
   }
 
   onArticuloClick(articulo: Articulo) {
