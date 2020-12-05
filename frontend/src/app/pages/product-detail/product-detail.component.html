@@ -12,7 +12,9 @@
         />
       </figure>
       <div class="product-detail__info">
-        <p class="product-detail__marca">{{ articulo?.cod_marca }}</p>
+        <p class="product-detail__marca">
+          {{ articulo?.cod_marca }} - {{ nomenclatura?.denominacion }}
+        </p>
         <h2 class="product-detail__descripcion">
           <strong
             >{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}</strong

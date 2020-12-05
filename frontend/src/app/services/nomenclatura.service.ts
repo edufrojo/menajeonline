@@ -16,7 +16,7 @@ export class NomenclaturaService {
     return this.http.get(`${this.uri}/nomenclaturas`);
   }
 
-  getNomenclaturasByCod(cod): Observable<any> {
+  getNomenclaturaByCod(cod): Observable<any> {
     return this.http.get(`${this.uri}/nomenclaturas/${cod}`);
   }
 }

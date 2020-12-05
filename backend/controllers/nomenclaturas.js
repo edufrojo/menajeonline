@@ -21,7 +21,7 @@ const getNomenclaturaByCod = async (req, res) => {
 
   try {
     const nomenclatura = await Nomenclatura.findOne({
-      cod_articulo: cod,
+      nomenclatura: cod,
     });
 
     res.json({
