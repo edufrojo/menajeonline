@@ -37,6 +37,6 @@ export class SidenavComponent implements OnInit {
 
   onChangePage(path) {
     this.sidenavClose.emit();
-    this.router.navigate(['/search']);
+    this.router.navigate([path]);
   }
 }

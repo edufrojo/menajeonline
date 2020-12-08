@@ -62,6 +62,54 @@ const getArticulosByPromotion = async (req, res) => {
   }
 };
 
+const getArticulosByNomenclatura = async (req, res) => {
+  try {
+    const nomenclatura = req.params.nomenclatura;
+
+    var departamento = nomenclatura.substring(0, 2);
+    var familia = nomenclatura.substring(2, 4);
+    var categoria = nomenclatura.substring(4, 6);
+
+    const page = Number(req.query.page) || 0;
+    const limitItems = 50;
+
+    switch (nomenclatura.length) {
+      case 4:
+        articulos = await Articulo.find({
+          departamento: departamento,
+          familia: familia,
+        })
+          .skip(page * limitItems)
+          .limit(limitItems);
+        break;
+      case 6:
+        articulos = await Articulo.find({
+          departamento: departamento,
+          familia: familia,
+          categoria: categoria,
+        })
+          .skip(page * limitItems)
+          .limit(limitItems);
+        break;
+      default:
+        articulos = await Articulo.find({ departamento: departamento })
+          .skip(page * limitItems)
+          .limit(limitItems);
+        break;
+    }
+
+    res.json({
+      ok: true,
+      articulos,
+    });
+  } catch (error) {
+    res.json({
+      ok: true,
+      msg: "No existen articulos",
+    });
+  }
+};
+
 const buscarArticulos = async (req, res = response) => {
   const busqueda = req.params.busqueda;
   const regex = new RegExp(busqueda, "i");
@@ -78,5 +126,6 @@ module.exports = {
   getArticulos,
   getArticuloByCod,
   getArticulosByPromotion,
+  getArticulosByNomenclatura,
   buscarArticulos,
 };

@@ -13,6 +13,7 @@ export class ArticuloService {
   public cargando: boolean = false;
   private page = 0;
   private promotionId = '';
+  private nomenclaturaId = '';
 
   constructor(private http: HttpClient) {}
 
@@ -43,6 +44,26 @@ export class ArticuloService {
 
     return this.http
       .get(`${this.uri}/articulos/promocion/${promotion}`, {
+        params: this.params,
+      })
+      .pipe(
+        tap(() => {
+          this.cargando = false;
+          this.page += 1;
+        })
+      );
+  }
+
+  getProductsByNomenclatura(nomenclatura): Observable<any> {
+    this.cargando = true;
+
+    if (this.nomenclaturaId !== nomenclatura) {
+      this.nomenclaturaId = nomenclatura;
+      this.page = 0;
+    }
+
+    return this.http
+      .get(`${this.uri}/articulos/departamentos/${nomenclatura}`, {
         params: this.params,
       })
       .pipe(

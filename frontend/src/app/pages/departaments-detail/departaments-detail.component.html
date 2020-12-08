@@ -1,0 +1,27 @@
+<section class="departament-detail">
+  <div class="container">
+    <app-boton-atras></app-boton-atras>
+    <h1 class="title">{{ nomenclatura?.denominacion }}</h1>
+    <div class="list">
+      <div
+        class="product"
+        *ngFor="let articulo of articulos"
+        (click)="onProductClick(articulo)"
+      >
+        <img
+          mat-card-image
+          class="product__image"
+          loading="lazy"
+          src="{{ articulo?.url_imagen }}"
+          alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
+          title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
+        />
+        <p class="product__title">
+          {{ articulo?.descripcion }} {{ articulo?.descripcion2 }}
+        </p>
+        <p class="product__price">{{ articulo?.PVP }} EUR</p>
+      </div>
+    </div>
+  </div>
+</section>
+<app-boton-top></app-boton-top>

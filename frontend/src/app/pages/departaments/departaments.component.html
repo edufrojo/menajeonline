@@ -1,1 +1,29 @@
-<p>departaments works!</p>
+<div>
+  <h1 class="title">Departamentos</h1>
+  <ul *ngFor="let nomenPrimaria of nomenPrimarias">
+    <li>
+      <a
+        class="link"
+        title="Ir a {{ nomenPrimaria?.denominacion }}"
+        (click)="onDepartamentClick(nomenPrimaria)"
+        >{{ nomenPrimaria?.denominacion }}</a
+      >
+      <ul *ngFor="let nomenSecundaria of nomenSecundarias">
+        <li
+          *ngIf="
+            nomenSecundaria?.nomenclatura
+              .toString()
+              .indexOf(nomenPrimaria?.nomenclatura.toString()) == 0
+          "
+        >
+          <a
+            class="link"
+            title="Ir a {{ nomenSecundaria?.denominacion }}"
+            (click)="onDepartamentClick(nomenSecundaria)"
+            >{{ nomenSecundaria?.denominacion }}</a
+          >
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

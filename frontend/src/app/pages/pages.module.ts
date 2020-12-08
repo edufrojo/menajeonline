@@ -19,6 +19,7 @@ import { PromotionDetailComponent } from './promotion-detail/promotion-detail.co
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SearchComponent } from './search/search.component';
 import { DepartamentsComponent } from './departaments/departaments.component';
+import { DepartamentsDetailComponent } from './departaments-detail/departaments-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DepartamentsComponent } from './departaments/departaments.component';
     ProductDetailComponent,
     SearchComponent,
     DepartamentsComponent,
+    DepartamentsDetailComponent,
   ],
   imports: [
     CommonModule,
