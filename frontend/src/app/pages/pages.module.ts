@@ -8,6 +8,9 @@ import { MaterialModule } from './../material.module';
 // Rutas
 import { RouterModule } from '@angular/router';
 
+// Pipes
+import { PipesModule } from './../pipes/pipes.module';
+
 // Componentes comunes
 import { SharedModule } from './../shared/shared.module';
 import { ComponentsModule } from './../components/components.module';
@@ -35,6 +38,7 @@ import { DepartamentsDetailComponent } from './departaments-detail/departaments-
     CommonModule,
     MaterialModule,
     RouterModule,
+    PipesModule,
     SharedModule,
     ComponentsModule,
   ],

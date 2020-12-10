@@ -4,7 +4,7 @@
     <div class="product-wrapper">
       <figure class="product-detail__figure">
         <img
-          src="{{ articulo?.url_imagen }}"
+          [src]="articulo?.url_imagen | imagen: 'articulos'"
           class="product-detail__image"
           loading="lazy"
           alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"

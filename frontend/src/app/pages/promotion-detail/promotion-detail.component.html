@@ -12,7 +12,7 @@
           mat-card-image
           class="product__image"
           loading="lazy"
-          src="{{ articulo?.url_imagen }}"
+          [src]="articulo?.url_imagen | imagen: 'articulos'"
           alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
           title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
