@@ -14,8 +14,6 @@ const actualizarArticulos = async () => {
       pFormatoXML: "true",
     };
 
-    Articulo.db.dropCollection("articulos");
-
     soap.createClient(urlSoap, function (err, client) {
       client.Articulos(args, function (err, xml) {
         xml2js
@@ -29,6 +27,32 @@ const actualizarArticulos = async () => {
             );
 
             var articulos = JSON.parse(json);
+
+            var articulos = articulos.filter(
+              (articulo) =>
+                articulo.departamento != "02" &&
+                articulo.departamento != "05" &&
+                articulo.departamento != "07" &&
+                articulo.departamento != "09" &&
+                articulo.departamento != "10" &&
+                articulo.departamento != "11" &&
+                articulo.departamento != "12" &&
+                articulo.departamento != "13" &&
+                articulo.departamento != "15" &&
+                articulo.departamento != "16" &&
+                articulo.departamento != "17" &&
+                articulo.departamento != "18" &&
+                articulo.departamento != "22" &&
+                articulo.departamento != "23" &&
+                articulo.departamento != "24" &&
+                articulo.departamento != "25" &&
+                articulo.departamento != "26" &&
+                articulo.departamento != "27" &&
+                articulo.departamento != "98" &&
+                articulo.departamento != "99"
+            );
+
+            Articulo.db.dropCollection("articulos");
 
             Articulo.insertMany(articulos)
               .then(function () {

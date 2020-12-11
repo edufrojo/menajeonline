@@ -14,8 +14,6 @@ const actualizarCaracteristicas = async () => {
       pFormatoXML: "true",
     };
 
-    Caracteristica.db.dropCollection("caracteristicas");
-
     soap.createClient(urlSoap, function (err, client) {
       client.ArticulosCaracteristicas(args, function (err, xml) {
         xml2js
@@ -30,9 +28,11 @@ const actualizarCaracteristicas = async () => {
 
             var caracteristicas = JSON.parse(json);
 
+            Caracteristica.db.dropCollection("caracteristicas");
+
             Caracteristica.insertMany(caracteristicas)
               .then(function () {
-                console.log("[INFO] :: Caracteristicas guardadas");
+                console.log("[INFO] :: Caracteristicas actualizados");
               })
               .catch(function (error) {
                 console.log(error);

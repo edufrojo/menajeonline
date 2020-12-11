@@ -14,8 +14,6 @@ const actualizarPromociones = async () => {
       pFormatoXML: "true",
     };
 
-    Promocion.db.dropCollection("promocions");
-
     soap.createClient(urlSoap, function (err, client) {
       client.PromocionesCabecera(args, function (err, xml) {
         xml2js
@@ -30,9 +28,17 @@ const actualizarPromociones = async () => {
 
             var promociones = JSON.parse(json);
 
+            var promociones = promociones.filter(
+              (promocion) =>
+                promocion.cod_promocion != "202009" &&
+                promocion.cod_promocion != "202041"
+            );
+
+            Promocion.db.dropCollection("promocions");
+
             Promocion.insertMany(promociones)
               .then(function () {
-                console.log("[INFO] :: Promociones guardadas");
+                console.log("[INFO] :: Promociones actualizadas");
               })
               .catch(function (error) {
                 console.log(error);

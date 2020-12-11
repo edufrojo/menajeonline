@@ -14,8 +14,6 @@ const actualizarStocks = async () => {
       pFormatoXML: "true",
     };
 
-    Stock.db.dropCollection("stocks");
-
     soap.createClient(urlSoap, function (err, client) {
       client.ArticulosStock(args, function (err, xml) {
         xml2js
@@ -30,9 +28,11 @@ const actualizarStocks = async () => {
 
             var stocks = JSON.parse(json);
 
+            Stock.db.dropCollection("stocks");
+
             Stock.insertMany(stocks)
               .then(function () {
-                console.log("[INFO] Stocks guardados");
+                console.log("[INFO] :: Stocks actualizados");
               })
               .catch(function (error) {
                 console.log(error);

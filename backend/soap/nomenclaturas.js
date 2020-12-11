@@ -14,8 +14,6 @@ const actualizarNomenclaturas = async () => {
       pFormatoXML: "true",
     };
 
-    Nomenclatura.db.dropCollection("nomenclaturas");
-
     soap.createClient(urlSoap, function (err, client) {
       client.Nomenclaturas(args, function (err, xml) {
         xml2js
@@ -28,11 +26,35 @@ const actualizarNomenclaturas = async () => {
               4
             );
 
-            var nomenclaturas = JSON.parse(json);
+            var nomenclaturas = JSON.parse(json).filter(
+              (nomenclatura) =>
+                nomenclatura.nomenclatura.toString().indexOf("02") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("05") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("07") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("09") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("10") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("11") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("12") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("13") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("15") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("16") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("17") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("18") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("22") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("23") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("24") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("25") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("26") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("27") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("98") != "0" &&
+                nomenclatura.nomenclatura.toString().indexOf("99") != "0"
+            );
+
+            Nomenclatura.db.dropCollection("nomenclaturas");
 
             Nomenclatura.insertMany(nomenclaturas)
               .then(function () {
-                console.log("[INFO] Nomenclaturas guardadas");
+                console.log("[INFO] :: Nomenclaturas actualizadas");
               })
               .catch(function (error) {
                 console.log(error);
