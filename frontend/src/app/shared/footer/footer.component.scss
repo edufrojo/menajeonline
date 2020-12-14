@@ -9,7 +9,8 @@ footer {
     align-items: center;
     justify-content: space-between;
 
-    a {
+    a,
+    p {
       padding-left: 27px;
       padding-right: 27px;
       color: white;
@@ -19,6 +20,10 @@ footer {
         padding-left: 0px;
         padding-right: 0px;
       }
+    }
+
+    p {
+      cursor: default;
     }
   }
 }
