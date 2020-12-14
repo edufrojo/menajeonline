@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  project-edufrojo:
+    image: dev-menajeonline:latest
+    restart: unless-stopped
+    container_name: dev-menajeonline
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dev-menajeonline.entrypoints=http"
+      - "traefik.http.routers.dev-menajeonline.rule=Host(`dev.menajeonline.com`)"
+      - "traefik.http.middlewares.dev-menajeonline-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.dev-menajeonline.middlewares=dev.menajeonline-https-redirect"
+      - "traefik.http.routers.dev-menajeonline-secure.entrypoints=https"
+      - "traefik.http.routers.dev-menajeonline-secure.rule=Host:(`dev.menajeonline.com`)"
+      - "traefik.http.routers.dev-menajeonline-secure.tls=true"
+      - "traefik.http.routers.dev-menajeonline-secure.tls.certresolver=http"
+      - "traefik.http.routers.dev-menajeonline-secure.service=dev.menajeonline"
+      - "traefik.docker.network=web"
+      - "traefik.frontend.rule=Host:dev.menajeonline.com"
+
+networks:
+  web:
+    external: true
