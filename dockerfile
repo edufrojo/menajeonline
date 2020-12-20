@@ -12,4 +12,4 @@ COPY backend .
 RUN npm install
 COPY --from=build /usr/src/app/dist/menajeonline /usr/src/app/public
 EXPOSE 3000
-CMD ["node","index.js"]
+CMD ["npm", "run", "start:prod"]

@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ArticuloService {
-  public uri: string = environment.base_url;
+  public uri: string = environment.apiUrl;
   public cargando: boolean = false;
   private page = 0;
   private promotionId = '';

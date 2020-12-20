@@ -13,12 +13,12 @@ footer {
     p {
       padding-left: 27px;
       padding-right: 27px;
+      font-size: 12px;
       color: white;
       text-decoration: none;
 
-      @media all and (min-width: 60em) {
-        padding-left: 0px;
-        padding-right: 0px;
+      @media all and (min-width: 40em) {
+        font-size: 16px;
       }
     }
 

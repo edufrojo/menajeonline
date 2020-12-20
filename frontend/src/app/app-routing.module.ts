@@ -6,7 +6,7 @@ import { PagesRoutingModule } from './pages/pages.routing';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 

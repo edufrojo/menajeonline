@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("custom-env").env();
 
 const express = require("express");
 const path = require("path");
@@ -41,17 +41,17 @@ const { actualizarNomenclaturas } = require("./soap/nomenclaturas");
 const { actualizarStocks } = require("./soap/stocks");
 
 function updateDB() {
-  setTimeout(function () {
+  setInterval(function () {
     actualizarArticulos();
     actualizarPromociones();
     actualizarCaracteristicas();
     actualizarNomenclaturas();
     actualizarStocks();
-  }, 3000);
+  }, 86400000);
 }
 
 //updateDB();
 
 app.listen(process.env.PORT, () => {
-  console.log("[INFO] Servidor online en puerto " + process.env.PORT);
+  console.log("[INFO] :: Servidor conectado");
 });

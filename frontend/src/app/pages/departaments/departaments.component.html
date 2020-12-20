@@ -1,29 +1,39 @@
-<div>
-  <h1 class="title">Departamentos</h1>
-  <ul *ngFor="let nomenPrimaria of nomenPrimarias">
-    <li>
-      <a
-        class="link"
-        title="Ir a {{ nomenPrimaria?.denominacion }}"
-        (click)="onDepartamentClick(nomenPrimaria)"
-        >{{ nomenPrimaria?.denominacion }}</a
-      >
-      <ul *ngFor="let nomenSecundaria of nomenSecundarias">
-        <li
-          *ngIf="
-            nomenSecundaria?.nomenclatura
-              .toString()
-              .indexOf(nomenPrimaria?.nomenclatura.toString()) == 0
-          "
-        >
+<div class="departamentos">
+  <div class="container">
+    <app-boton-atras></app-boton-atras>
+    <ul>
+      <li class="departamento" *ngFor="let nomenPrimaria of nomenPrimarias">
+        <h2 class="title">
           <a
             class="link"
-            title="Ir a {{ nomenSecundaria?.denominacion }}"
-            (click)="onDepartamentClick(nomenSecundaria)"
-            >{{ nomenSecundaria?.denominacion }}</a
+            title="Ir a {{ nomenPrimaria?.denominacion }}"
+            (click)="onDepartamentClick(nomenPrimaria)"
+            >{{ nomenPrimaria?.denominacion }}</a
           >
-        </li>
-      </ul>
-    </li>
-  </ul>
+        </h2>
+
+        <ul class="list">
+          <ng-container *ngFor="let nomenSecundaria of nomenSecundarias">
+            <li
+              class="categoria"
+              *ngIf="
+                nomenSecundaria?.nomenclatura
+                  .toString()
+                  .indexOf(nomenPrimaria?.nomenclatura.toString()) == 0
+              "
+            >
+              <button
+                mat-raised-button
+                color="primary"
+                title="Ir a {{ nomenSecundaria?.denominacion }}"
+                (click)="onDepartamentClick(nomenSecundaria)"
+              >
+                {{ nomenSecundaria?.denominacion }}
+              </button>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>

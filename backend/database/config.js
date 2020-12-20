@@ -10,10 +10,9 @@ const dbConnection = async () => {
       useCreateIndex: true,
     });
 
-    console.log("[INFO] MongoDB conectado");
+    console.log("[INFO] :: Base de datos conectada");
   } catch (error) {
     console.log(error);
-    throw new Error("[FAIL] Error de conexión, revisar los logs");
   }
 };
 

@@ -17,6 +17,7 @@ import { ComponentsModule } from './../components/components.module';
 
 // Componentes páginas
 import { PagesComponent } from './pages.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PromotionDetailComponent } from './promotion-detail/promotion-detail.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -27,6 +28,7 @@ import { DepartamentsDetailComponent } from './departaments-detail/departaments-
 @NgModule({
   declarations: [
     PagesComponent,
+    PageNotFoundComponent,
     WelcomeComponent,
     PromotionDetailComponent,
     ProductDetailComponent,

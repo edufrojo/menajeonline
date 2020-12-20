@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PromocionService {
-  public uri: string = environment.base_url;
+  public uri: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

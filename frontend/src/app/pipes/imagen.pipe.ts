@@ -6,13 +6,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ImagenPipe implements PipeTransform {
   transform(img: string, tipo: 'articulos'): string {
     if (!img) {
-      return `./../../assets/images/no-image.png`;
+      return `/assets/images/no-image.png`;
     } else if (img.length === 0) {
-      return `./../../assets/images/no-image.png`;
+      return `/assets/images/no-image.png`;
     } else if (img.includes('https')) {
-      return img;
+      let position = img.toString().indexOf('articulos/');
+      let codArticulo = img.toString().substring(position);
+      return '/assets/images/' + codArticulo;
     } else if (img) {
-      return img;
+      let position = img.toString().indexOf('articulos/');
+      let codArticulo = img.toString().substring(position);
+      return '/assets/images/' + codArticulo;
     }
   }
 }

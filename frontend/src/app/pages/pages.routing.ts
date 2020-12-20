@@ -15,13 +15,13 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: 'welcome', component: WelcomeComponent },
-      { path: 'search', component: SearchComponent },
+      { path: 'inicio', component: WelcomeComponent },
+      { path: 'buscador', component: SearchComponent },
       { path: 'departamentos', component: DepartamentsComponent },
       { path: 'departamentos/:nom', component: DepartamentsDetailComponent },
       { path: 'promocion/:cod', component: PromotionDetailComponent },
       { path: 'producto/:cod', component: ProductDetailComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ],
   },
 ];
