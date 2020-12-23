@@ -19,14 +19,25 @@
         *ngFor="let articulo of articulos"
         (click)="onProductClick(articulo)"
       >
-        <img
-          mat-card-image
-          class="product__image"
-          loading="lazy"
-          [src]="articulo?.url_imagen | imagen: 'articulos'"
-          alt="{{ articulo.descripcion }} {{ articulo.descripcion2 }}"
-          title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            [srcset]="articulo?.url_imagen | imagenWebp: 'articulos'"
+          />
+          <source
+            type="image/jpeg"
+            [srcset]="articulo?.url_imagen | imagenJpg: 'articulos'"
+          />
+          <img
+            mat-card-image
+            class="product__image"
+            loading="lazy"
+            [src]="articulo?.url_imagen | imagenJpg: 'articulos'"
+            alt="{{ articulo.descripcion }} {{ articulo.descripcion2 }}"
+            title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
+          />
+        </picture>
+
         <p class="product__title">
           {{ articulo.descripcion }} {{ articulo.descripcion2 }}
         </p>

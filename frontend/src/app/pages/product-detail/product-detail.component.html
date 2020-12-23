@@ -2,15 +2,23 @@
   <div class="container">
     <app-boton-atras></app-boton-atras>
     <div class="product-wrapper">
-      <figure class="product-detail__figure">
+      <picture class="product-detail__figure">
+        <source
+          type="image/webp"
+          [srcset]="articulo?.url_imagen | imagenWebp: 'articulos'"
+        />
+        <source
+          type="image/jpeg"
+          [srcset]="articulo?.url_imagen | imagenJpg: 'articulos'"
+        />
         <img
-          [src]="articulo?.url_imagen | imagen: 'articulos'"
+          [src]="articulo?.url_imagen | imagenJpg: 'articulos'"
           class="product-detail__image"
           loading="lazy"
           alt="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
           title="{{ articulo?.descripcion }} {{ articulo?.descripcion2 }}"
         />
-      </figure>
+      </picture>
       <div class="product-detail__info">
         <p class="product-detail__marca">
           {{ articulo?.cod_marca }} - {{ nomenclatura?.denominacion }}
