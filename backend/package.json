@@ -21,6 +21,8 @@
     "fetch": "^1.1.0",
     "fs": "0.0.1-security",
     "helmet": "^4.2.0",
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^6.0.0",
     "mongoose": "^5.10.11",
     "node-fetch": "^2.6.1",
     "path": "^0.12.7",

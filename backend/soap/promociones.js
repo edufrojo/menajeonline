@@ -23,7 +23,6 @@ const actualizarPromociones = async () => {
           client.PromocionesCabecera(args, function (err, xml) {
             if (err) console.log(err);
             else {
-              console.log(xml.return);
               xml2js
                 .parseStringPromise(xml.return.$value, { mergeAttrs: true })
 
