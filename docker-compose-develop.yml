@@ -20,6 +20,7 @@ services:
       - "traefik.http.routers.dev-menajeonline-secure.tls=true"
       - "traefik.http.routers.dev-menajeonline-secure.tls.certresolver=http"
       - "traefik.http.routers.dev-menajeonline-secure.service=dev.menajeonline"
+      - "traefik.frontend.auth.basic=menajejane:$2y$10$4eEu8M8q0Qm1MwwpQW00EOkPedJP7OM.LqkI1vnpDLUcn9J9Adjca"
       - "traefik.docker.network=web"
       - "traefik.frontend.rule=Host:dev.menajeonline.com"
 
