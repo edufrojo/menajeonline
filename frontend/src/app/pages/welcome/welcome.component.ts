@@ -25,7 +25,9 @@ export class WelcomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Inicio - Menaje Hogar Jané');
+    this.titleService.setTitle(
+      'Menaje Hogar Jané: Tienda especializada en productos del hogar'
+    );
     this.metaService.addTags([
       {
         name: 'keywords',
@@ -34,7 +36,7 @@ export class WelcomeComponent implements OnInit {
       {
         name: 'description',
         content:
-          '🏡 ¿Buscas las últimas tendencias para tu hogar? Tienda especializada en productos de menaje, hogar, jardín y decoración.',
+          'Productos para cocina y comedor, jardín, baño, muebles, decoración del hogar y mucho más.',
       },
     ]);
 
