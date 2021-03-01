@@ -39,14 +39,15 @@ const actualizarPromociones = async () => {
                   var promociones = promociones.filter(
                     (promocion) =>
                       promocion.cod_promocion != "202009" &&
-                      promocion.cod_promocion != "202041"
+                      promocion.cod_promocion != "202041" &&
+                      promocion.cod_promocion != "202101"
                   );
 
                   Promocion.db.dropCollection("promocions");
 
                   Promocion.insertMany(promociones)
                     .then(function () {
-                      contPro = 0;
+                      contPro = 5;
                       console.log("[OK] :: Promociones actualizadas");
                     })
                     .catch(function (error) {
@@ -59,7 +60,6 @@ const actualizarPromociones = async () => {
         }
       });
     } else {
-      contPro = 0;
       console.log("[ERROR] :: Promociones no actualizadas");
     }
   } catch (error) {

@@ -40,7 +40,7 @@ const actualizarStocks = async () => {
 
                   Stock.insertMany(stocks)
                     .then(function () {
-                      contSto = 0;
+                      contSto = 5;
                       console.log("[OK] :: Stocks actualizados");
                     })
                     .catch(function (error) {
@@ -53,7 +53,6 @@ const actualizarStocks = async () => {
         }
       });
     } else {
-      contSto = 0;
       console.log("[ERROR] :: Stocks no actualizados");
     }
   } catch (error) {

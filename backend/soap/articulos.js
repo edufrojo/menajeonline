@@ -67,7 +67,7 @@ const actualizarArticulos = async () => {
 
                   Articulo.insertMany(articulos)
                     .then(function () {
-                      contArt = 0;
+                      contArt = 5;
                       console.log("[OK] :: UPDATE - Artículos actualizados");
                     })
                     .catch(function (error) {
@@ -80,7 +80,7 @@ const actualizarArticulos = async () => {
         }
       });
 
-      /*console.log("[INFO] :: UPDATE - Actualizar imágenes");
+      console.log("[INFO] :: UPDATE - Actualizar imágenes");
 
       var listaArticulos = Articulo.find();
       listaArticulos.forEach((articulo) => {
@@ -99,9 +99,8 @@ const actualizarArticulos = async () => {
 
           download();
         }
-      });*/
+      });
     } else {
-      contArt = 0;
       console.log("[ERROR] :: Articulos no actualizados");
     }
   } catch (error) {

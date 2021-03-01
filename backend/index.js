@@ -53,7 +53,7 @@ function updateDB() {
   }, 86400000);
 }
 
-//updateDB();
+updateDB();
 
 /*
 (async () => {

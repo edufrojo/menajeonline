@@ -39,7 +39,7 @@ const actualizarCaracteristicas = async () => {
 
                   Caracteristica.insertMany(caracteristicas)
                     .then(function () {
-                      contCar = 0;
+                      contCar = 5;
                       console.log("[OK] :: Caracteristicas actualizadas");
                     })
                     .catch(function (error) {
@@ -52,7 +52,6 @@ const actualizarCaracteristicas = async () => {
         }
       });
     } else {
-      contCar = 0;
       console.log("[ERROR] :: Caracteristicas no actualizadas");
     }
   } catch (error) {

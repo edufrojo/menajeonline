@@ -81,7 +81,7 @@ const actualizarNomenclaturas = async () => {
 
                   Nomenclatura.insertMany(nomenclaturas)
                     .then(function () {
-                      contNom = 0;
+                      contNom = 5;
                       console.log("[OK] :: Nomenclaturas actualizadas");
                     })
                     .catch(function (error) {
@@ -94,7 +94,6 @@ const actualizarNomenclaturas = async () => {
         }
       });
     } else {
-      contNom = 0;
       console.log("[ERROR] :: Nomenclaturas no actualizadas");
     }
   } catch (error) {
