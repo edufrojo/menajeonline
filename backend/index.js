@@ -7,9 +7,6 @@ const helmet = require("helmet");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const imagemin = require("imagemin");
-const imageminWebp = require("imagemin-webp");
-
 const app = express();
 
 app.use(
@@ -42,39 +39,22 @@ const { actualizarPromociones } = require("./soap/promociones");
 const { actualizarCaracteristicas } = require("./soap/caracteristicas");
 const { actualizarNomenclaturas } = require("./soap/nomenclaturas");
 const { actualizarStocks } = require("./soap/stocks");
+const { descargarImagenes } = require("./soap/descargar-imagenes");
+const { optimizarImagenes } = require("./soap/optimizar-imagenes");
 
-function updateDB() {
-  setInterval(function () {
-    actualizarArticulos();
-    actualizarPromociones();
-    actualizarCaracteristicas();
-    actualizarNomenclaturas();
-    actualizarStocks();
-  }, 86400000);
+async function updateDB() {
+  await actualizarArticulos();
+  await actualizarPromociones();
+  await actualizarCaracteristicas();
+  await actualizarNomenclaturas();
+  await actualizarStocks();
+  await descargarImagenes();
+  await optimizarImagenes();
 }
 
-updateDB();
-
-/*
-(async () => {
-  console.log("[INFO] :: UPDATE - Optimizar imágenes");
-
-  await imagemin(["../frontend/src/assets/images/articulos/*.{jpg,png}"], {
-    destination: "../frontend/src/assets/images/articulos/",
-    plugins: [
-      imageminWebp({
-        quality: 75,
-      }),
-    ],
-  })
-    .then(() => {
-      console.log("[OK] :: UPDATE - Imágenes optimizadas");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-})();
-*/
+setTimeout(function () {
+  //updateDB();
+}, 8640);
 
 app.listen(process.env.PORT, () => {
   console.log("[INFO] :: Servidor conectado");

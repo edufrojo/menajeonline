@@ -1,7 +1,5 @@
 const soap = require("soap");
 const xml2js = require("xml2js");
-const fs = require("fs");
-const fetch = require("node-fetch");
 
 let contArt = 0;
 
@@ -69,6 +67,7 @@ const actualizarArticulos = async () => {
                     .then(function () {
                       contArt = 5;
                       console.log("[OK] :: UPDATE - Artículos actualizados");
+                      return "OK";
                     })
                     .catch(function (error) {
                       console.log(error);
@@ -77,27 +76,6 @@ const actualizarArticulos = async () => {
                 .catch((err) => console.log(err), actualizarArticulos());
             }
           });
-        }
-      });
-
-      console.log("[INFO] :: UPDATE - Actualizar imágenes");
-
-      var listaArticulos = Articulo.find();
-      listaArticulos.forEach((articulo) => {
-        const url = articulo.url_imagen.toString();
-        const path =
-          "../frontend/src/assets/images/articulos/" +
-          articulo.cod_articulo.toString() +
-          ".jpg";
-
-        if (url !== "") {
-          async function download() {
-            const response = await fetch(url);
-            const buffer = await response.buffer();
-            fs.writeFile(path, buffer);
-          }
-
-          download();
         }
       });
     } else {
